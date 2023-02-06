@@ -4,6 +4,8 @@ import com.roman.arraytask4.entity.ArrayClass;
 import com.roman.arraytask4.service.calculation.CalculationService;
 import com.roman.arraytask4.util.PositivNegative;
 
+import java.util.OptionalInt;
+
 public class CalculationServiceImpl implements CalculationService {
 
     @Override
@@ -17,11 +19,11 @@ public class CalculationServiceImpl implements CalculationService {
     }
 
     @Override
-    public int average(ArrayClass arrayClass) {
+    public double average(ArrayClass arrayClass) {
         int[] array = arrayClass.getArray();
-        int average = 0;
+        double average = 0;
         int sum = sumOfElements(arrayClass);
-        average = sum / array.length;
+        average = (double) sum / array.length;
         return average;
     }
 
