@@ -4,8 +4,6 @@ import com.roman.arraytask4.entity.ArrayClass;
 import com.roman.arraytask4.service.calculation.CalculationService;
 import com.roman.arraytask4.util.PositivNegative;
 
-import java.util.OptionalInt;
-
 public class CalculationServiceImpl implements CalculationService {
 
     @Override
