@@ -1,6 +1,6 @@
 package com.roman.arraytask4.reader.impl;
 
-import com.roman.arraytask4.entity.OwnArray;
+import com.roman.arraytask4.entity.CustomArray;
 import com.roman.arraytask4.exception.CustomException;
 import com.roman.arraytask4.reader.ReadFromFile;
 import com.roman.arraytask4.validator.StringValidator;
@@ -24,8 +24,8 @@ public class ReadFromFileImpl implements ReadFromFile {
     private static final String SEPARATOR = "\\s+";
 
     @Override
-    public OwnArray arrayReader(String filename) throws CustomException {
-        OwnArray array = new OwnArray();
+    public CustomArray arrayReader(String filename) throws CustomException {
+        CustomArray array = new CustomArray();
         StringValidator stringValidator = new StringValidatorImpl();
         int[] ints;
         int[] tempArr = {};
@@ -40,10 +40,11 @@ public class ReadFromFileImpl implements ReadFromFile {
                 String[] splitedString = stringTmp.split(SEPARATOR);
                 ints = new int[splitedString.length];
                 int intCounter = 0;
+                logger.log(Level.INFO, "First String = {}", ints);
                 for (int i = 0; i < splitedString.length; i++) {
                     if (stringValidator.validateNumber(splitedString[i])) {
                         ints[i] = Integer.parseInt(splitedString[i]);
-                        logger.log(Level.INFO, ints[i]);
+                        logger.log(Level.INFO, "Element number {} = {} counter = {}", i, ints[i], intCounter);
                         intCounter++;
                     }
                 }
