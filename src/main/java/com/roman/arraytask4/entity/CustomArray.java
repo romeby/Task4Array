@@ -3,27 +3,32 @@ package com.roman.arraytask4.entity;
 import com.roman.arraytask4.util.IdGenerator;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.StringJoiner;
 
-public class ArrayClass {
-    private int ArrayId;
+public class CustomArray {
+    private int arrayId;
     private int[] array;
 
-    public ArrayClass() {
-        this.ArrayId = IdGenerator.generateArrayId();
+    public CustomArray() {
+        this.arrayId = IdGenerator.generateArrayId();
     }
 
-    public ArrayClass(int[] array) {
-        this.ArrayId= IdGenerator.generateArrayId();
+    public CustomArray(int[] array) {
+        this.arrayId = IdGenerator.generateArrayId();
         this.array = array;
     }
 
     public int getArrayId() {
-        return ArrayId;
+        return arrayId;
     }
 
     public void setArrayId(int arrayId) {
-        ArrayId = arrayId;
+        if(this.arrayId > 0) {
+            this.arrayId = arrayId;
+        } else {
+            this.arrayId = new Random().nextInt();
+        }
     }
 
     public int[] getArray() {
@@ -36,8 +41,8 @@ public class ArrayClass {
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", ArrayClass.class.getSimpleName() + "[", "]")
-                .add("ArrayId=" + ArrayId)
+        return new StringJoiner(", ", CustomArray.class.getSimpleName() + "[", "]")
+                .add("ArrayId=" + arrayId)
                 .add("array=" + Arrays.toString(array))
                 .toString();
     }

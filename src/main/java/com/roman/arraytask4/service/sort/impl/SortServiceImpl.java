@@ -1,6 +1,6 @@
 package com.roman.arraytask4.service.sort.impl;
 
-import com.roman.arraytask4.entity.OwnArray;
+import com.roman.arraytask4.entity.CustomArray;
 import com.roman.arraytask4.exception.CustomException;
 import com.roman.arraytask4.service.sort.SortService;
 import org.apache.logging.log4j.Level;
@@ -11,12 +11,14 @@ import java.util.Arrays;
 
 public class SortServiceImpl implements SortService {
     static Logger logger = LogManager.getLogger();
+    String emptyMsg = "Empty array";
+    String noElementMsg = "No elements in array";
     @Override
-    public void bubbleSort(OwnArray array) throws CustomException {
+    public void bubbleSort(CustomArray array) throws CustomException {
         int[] sortArray = array.getArray();
         int swap;
         if (sortArray == null) {
-            throw new CustomException("Empty array");
+            throw new CustomException(emptyMsg);
         }
         if (sortArray.length != 0) {
             for (int i = 0; i < sortArray.length; i++) {
@@ -28,16 +30,16 @@ public class SortServiceImpl implements SortService {
             }
             array.setArray(sortArray);
         } else {
-            logger.log(Level.INFO, "No elements in array", sortArray);
+            logger.log(Level.INFO, noElementMsg, sortArray);
         }
     }
 
 
     @Override
-    public void insertionSort(OwnArray array) throws CustomException {
+    public void insertionSort(CustomArray array) throws CustomException {
         int[] sortArray = array.getArray();
         if (sortArray == null) {
-            throw new CustomException("Empty array");
+            throw new CustomException(emptyMsg);
         }
         int j;
         if (sortArray.length != 0) {
@@ -50,15 +52,15 @@ public class SortServiceImpl implements SortService {
             }
             array.setArray(sortArray);
         } else {
-            logger.log(Level.INFO, "No elements in array", sortArray);
+            logger.log(Level.INFO, noElementMsg, sortArray);
         }
     }
 
     @Override
-    public void selectionSort(OwnArray array) throws CustomException {
+    public void selectionSort(CustomArray array) throws CustomException {
         int[] sortArray = array.getArray();
         if (sortArray == null){
-            throw new CustomException("Empty array");
+            throw new CustomException(emptyMsg);
         }
         if (sortArray.length != 0) {
             for (int i = 0; i < sortArray.length; i++) {
@@ -75,7 +77,20 @@ public class SortServiceImpl implements SortService {
             }
             array.setArray(sortArray);
         } else {
-            logger.log(Level.INFO, "No elements in array", sortArray);
+            logger.log(Level.INFO, noElementMsg, sortArray);
+        }
+    }
+
+    @Override
+    public void streamSort(CustomArray array) throws CustomException {
+        int[] sortArray = array.getArray();
+        if (sortArray == null){
+            throw new CustomException(emptyMsg);
+        }
+        if (sortArray.length != 0) {
+            array.setArray(Arrays.stream(array.getArray()).sorted().toArray());
+        } else {
+            logger.log(Level.INFO, noElementMsg, sortArray);
         }
     }
 }

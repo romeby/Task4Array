@@ -1,11 +1,17 @@
 package com.roman.arraytask4.service.calculation;
 
-import com.roman.arraytask4.entity.ArrayClass;
+import com.roman.arraytask4.entity.CustomArray;
 import com.roman.arraytask4.util.PositivNegative;
+
+import java.util.OptionalDouble;
 
 public interface CalculationService {
 
-    public int sumOfElements(ArrayClass arrayClass);
-    public double average(ArrayClass arrayClass);
-    public int countPositiveNegative(PositivNegative sign, ArrayClass arrayClass);
+    int sumOfElements(CustomArray arrayClass);
+    int sumStream(CustomArray arrayClass);
+    double average(CustomArray arrayClass);
+    OptionalDouble averageStream(CustomArray arrayClass);
+    int countPositiveNegative(PositivNegative sign, CustomArray arrayClass);
+    int countPositiveNegativeStream(PositivNegative sign, CustomArray arrayClass);
+
 }
