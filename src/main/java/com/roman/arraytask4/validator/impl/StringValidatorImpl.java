@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 public class StringValidatorImpl implements StringValidator {
     static Logger logger = LogManager.getLogger();
-    private static final String INT_REG_EX = "\\d+";
+    private static final String INT_REG_EX = "[+-]?\\d+";
 
     @Override
     public boolean validateNumber(String string) {
