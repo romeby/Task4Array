@@ -26,9 +26,7 @@ public class ReadFromFileImpl implements ReadFromFile {
     @Override
     public CustomArray arrayReader(String filename) throws CustomException {
         CustomArray array = new CustomArray();
-        StringValidator stringValidator = new StringValidatorImpl();
         int[] ints;
-        int[] tempArr = {};
         Path path = Paths.get(filename);
         if (!Files.exists(path)) {
             logger.log(Level.WARN, "File does not exist.");
@@ -41,18 +39,20 @@ public class ReadFromFileImpl implements ReadFromFile {
                 ints = new int[splitedString.length];
                 int intCounter = 0;
                 logger.log(Level.INFO, "First String = {}", ints);
+                StringValidator stringValidator = new StringValidatorImpl();
                 for (int i = 0; i < splitedString.length; i++) {
                     if (stringValidator.validateNumber(splitedString[i])) {
-                        ints[i] = Integer.parseInt(splitedString[i]);
+                        ints[intCounter] = Integer.parseInt(splitedString[i]);
                         logger.log(Level.INFO, "Element number {} = {} counter = {}", i, ints[i], intCounter);
                         intCounter++;
                     }
                 }
-                tempArr = Arrays.copyOfRange(ints,0,intCounter);
+                int[] tempArr = Arrays.copyOf(ints, intCounter);
+                array.setArray(tempArr);
             } else {
                 logger.log(Level.WARN, "No data. File is empty");
             }
-            array.setArray(tempArr);
+
         } catch (IOException ex){
             ex.printStackTrace(System.out);
             throw new CustomException("File is empty or File not Found");
