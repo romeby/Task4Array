@@ -4,11 +4,11 @@ import com.roman.arraytask4.entity.CustomArray;
 import com.roman.arraytask4.service.calculation.impl.CalculationServiceImpl;
 import com.roman.arraytask4.util.PositivNegative;
 
-public class ByCountSpecification implements Specification{
+public class CountSpecification implements Specification{
     private int countInput;
     private PositivNegative positivNegative;
 
-    public ByCountSpecification(int countInput, PositivNegative positivNegative) {
+    public CountSpecification(int countInput, PositivNegative positivNegative) {
         this.countInput = countInput;
         this.positivNegative = positivNegative;
     }

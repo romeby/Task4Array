@@ -4,18 +4,18 @@ import com.roman.arraytask4.entity.CustomArray;
 import com.roman.arraytask4.service.search.impl.SearchServiceImpl;
 import com.roman.arraytask4.util.MinMax;
 
-public class ByMinSpecification implements Specification{
-    private int minInput;
-    private MinMax minMax = MinMax.MIN;
+public class MaxSpecification implements Specification{
+    private int maxInput;
+    private MinMax minMax = MinMax.MAX;
 
-    public ByMinSpecification(int minInput) {
-        this.minInput = minInput;
+    public MaxSpecification(int maxInput) {
+        this.maxInput = maxInput;
     }
 
     @Override
     public boolean specify(CustomArray array) {
         SearchServiceImpl searchService = new SearchServiceImpl();
-        int resultMin = searchService.searchMinMax(minMax, array);
-        return resultMin > minInput;
+        int resultMax = searchService.searchMinMax(minMax, array);
+        return resultMax < maxInput;
     }
 }

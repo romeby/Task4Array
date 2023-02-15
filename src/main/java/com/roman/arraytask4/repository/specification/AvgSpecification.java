@@ -5,10 +5,10 @@ import com.roman.arraytask4.service.calculation.impl.CalculationServiceImpl;
 
 import java.util.OptionalDouble;
 
-public class ByAvgSpecification implements Specification{
+public class AvgSpecification implements Specification{
     private OptionalDouble averageInput;
 
-    public ByAvgSpecification(OptionalDouble averageInput) {
+    public AvgSpecification(OptionalDouble averageInput) {
         this.averageInput = averageInput;
     }
 

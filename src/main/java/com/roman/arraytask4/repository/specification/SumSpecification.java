@@ -3,10 +3,10 @@ package com.roman.arraytask4.repository.specification;
 import com.roman.arraytask4.entity.CustomArray;
 import com.roman.arraytask4.service.calculation.impl.CalculationServiceImpl;
 
-public class BySumSpecification implements Specification{
+public class SumSpecification implements Specification{
     private int sumInput;
 
-    public BySumSpecification(int sumInput) {
+    public SumSpecification(int sumInput) {
         this.sumInput = sumInput;
     }
 

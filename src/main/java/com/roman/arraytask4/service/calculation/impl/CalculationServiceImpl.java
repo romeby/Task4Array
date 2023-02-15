@@ -54,7 +54,7 @@ public class CalculationServiceImpl implements CalculationService {
                         count += 1;
                     }
                 }
-                logger.log(Level.INFO, "Negative numbers {} = ", count);
+                logger.log(Level.INFO, "Negative numbers quantity = {} ", count);
                 return count;
             }
             case POSITIV -> {
@@ -63,7 +63,7 @@ public class CalculationServiceImpl implements CalculationService {
                         count += 1;
                     }
                 }
-                logger.log(Level.INFO, "Positive numbers {} = ", count);
+                logger.log(Level.INFO, "Positive numbers quantity = {} ", count);
                 return count;
             }
         }
