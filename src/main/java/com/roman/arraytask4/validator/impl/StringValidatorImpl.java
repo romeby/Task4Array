@@ -13,7 +13,7 @@ public class StringValidatorImpl implements StringValidator {
     public boolean validateNumber(String string) {
         boolean matchInt = string.matches(INT_REG_EX);
         if (!matchInt) {
-            logger.log(Level.WARN, "Bad match int");
+            logger.log(Level.WARN, "does not match");
         }
         return matchInt;
     }

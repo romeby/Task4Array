@@ -38,12 +38,10 @@ public class ReadFromFileImpl implements ReadFromFile {
                 String[] splitedString = stringTmp.split(SEPARATOR);
                 ints = new int[splitedString.length];
                 int intCounter = 0;
-                logger.log(Level.INFO, "First String = {}", ints);
                 StringValidator stringValidator = new StringValidatorImpl();
                 for (int i = 0; i < splitedString.length; i++) {
                     if (stringValidator.validateNumber(splitedString[i])) {
                         ints[intCounter] = Integer.parseInt(splitedString[i]);
-                        logger.log(Level.INFO, "Element number {} = {} counter = {}", i, ints[i], intCounter);
                         intCounter++;
                     }
                 }
